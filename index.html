@@ -6,35 +6,119 @@
     <title>Sarah ♡ Please forgive me</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Georgia',serif;background:#0d0a1f;min-height:100vh;color:#fff;overflow-x:hidden}
-        .sky{position:fixed;inset:0;background:linear-gradient(135deg,#1a0033,#2a0055,#4a0066,#800040);background-size:300% 300%;animation:breathe 25s ease infinite;z-index:1}
+        body{font-family:'Georgia',serif;background:#0a001f;min-height:100vh;color:#fff;overflow-x:hidden}
+        /* Pure romantic pink/purple sky */
+        .sky{
+            position:fixed;inset:0;
+            background:linear-gradient(135deg,#2a0038,#4a0044,#70004d,#a0006b,#c00085,#d90099);
+            background-size:300% 300%;
+            animation:breathe 22s ease infinite;
+            z-index:1;
+        }
         @keyframes breathe{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        
         .hearts,.glow{position:fixed;inset:0;pointer-events:none;z-index:2}
-        .heart{position:absolute;font-size:1.8rem;opacity:0;animation:rise 15s linear infinite;filter:drop-shadow(0 0 15px #ff69b4)}
-        .sparkle{position:absolute;width:4px;height:4px;background:#ffebff;border-radius:50%;animation:twinkle 6s infinite}
-        @keyframes rise{0%{transform:translateY(100vh) rotate(0deg);opacity:0}12%{opacity:0.9}88%{opacity:0.7}100%{transform:translateY(-120px) rotate(360deg);opacity:0}}
+        .heart{
+            position:absolute;font-size:1.8rem;opacity:0;
+            animation:rise 15s linear infinite;
+            filter:drop-shadow(0 0 16px #ff33a1);
+            color:#ff99cc;
+        }
+        .sparkle{
+            position:absolute;width:5px;height:5px;
+            background:#ffebff;border-radius:50%;
+            animation:twinkle 5s infinite;
+        }
+        @keyframes rise{0%{transform:translateY(100vh) rotate(0deg);opacity:0}12%{opacity:0.95}88%{opacity:0.7}100%{transform:translateY(-120px) rotate(360deg);opacity:0}}
         @keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
+
         .wrapper{position:relative;z-index:10;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px 16px}
         .letter{max-width:440px;width:100%;text-align:center}
-        .photo{width:160px;height:160px;border-radius:50%;overflow:hidden;margin:0 auto 30px;box-shadow:0 0 60px rgba(255,105,180,.6),0 0 120px rgba(255,182,193,.4);animation:pulse 5s infinite}
+        .photo{
+            width:160px;height:160px;border-radius:50%;overflow:hidden;
+            margin:0 auto 30px;
+            box-shadow:0 0 70px rgba(255,51,161,0.7),0 0 140px rgba(255,153,204,0.5);
+            animation:pulse 5s infinite;
+        }
         .photo img{width:100%;height:100%;object-fit:cover}
-        @keyframes pulse{0%,100%{box-shadow:0 0 60px rgba(255,105,180,.6)}50%{box-shadow:0 0 90px rgba(255,105,180,.9)}}
-        h1{font-size:3.4rem;margin:20px 0;background:linear-gradient(135deg,#ff69b4,#ffb6c1,#ff9ecd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 4px 20px rgba(255,105,180,.4)}
-        .subtitle{font-size:1.4rem;color:#ffb6e6;font-style:italic;margin-bottom:30px}
-        .big-heart{font-size:5.5rem;margin:30px 0;animation:heartbeat 1.8s infinite}
-        @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.28)}28%{transform:scale(1)}42%{transform:scale(1.22)}}
-        .bubble{background:rgba(255,255,255,.12);backdrop-filter:blur(20px);border-radius:32px;padding:34px 28px;margin:34px 0;box-shadow:0 20px 50px rgba(0,0,0,.3),inset 0 0 40px rgba(255,255,255,.1)}
-        .bubble h2{font-size:1.9rem;margin-bottom:22px;color:#ff9ecd;text-shadow:0 3px 15px rgba(255,105,180,.5)}
-        .bubble p{font-size:1.22rem;line-height:1.95;color:#ffeef8;margin:18px 0}
-        .reason{background:rgba(255,255,255,.15);padding:24px;border-radius:28px;margin:20px 0;text-align:left;backdrop-filter:blur(10px)}
-        .reason span:first-child{font-size:2.4rem;margin-right:16px}
-        .reason span:last-child{font-size:1.18rem;display:inline-block;width:calc(100%-70px);vertical-align:middle}
-        .btn{background:linear-gradient(135deg,#ff69b4,#ff1493,#ff9ecd);color:white;border:none;padding:22px 60px;font-size:1.42rem;border-radius:50px;margin:40px 0 20px;cursor:pointer;box-shadow:0 20px 60px rgba(255,20,147,.5);font-weight:bold;width:94%;transition:all .5s}
-        .btn:hover{transform:translateY(-10px) scale(1.06);box-shadow:0 30px 80px rgba(255,20,147,.7)}
-        .response{display:none;background:rgba(255,105,180,.25);backdrop-filter:blur(20px);border-radius:32px;padding:40px 30px;margin-top:35px;animation:appear 1s;box-shadow:0 20px 60px rgba(255,105,180,.4)}
+        @keyframes pulse{0%,100%{box-shadow:0 0 70px rgba(255,51,161,0.7)}50%{box-shadow:0 0 100px rgba(255,51,161,1)}}
+
+        h1{
+            font-size:3.4rem;margin:20px 0;
+            background:linear-gradient(135deg,#ff3399,#ff66b3,#ff99cc,#ff3399);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+            text-shadow:0 4px 20px rgba(255,51,161,0.5);
+        }
+        .subtitle{font-size:1.4rem;color:#ffccdd;font-style:italic;margin-bottom:30px}
+        .big-heart{font-size:5.5rem;margin:30px 0;animation:heartbeat 1.8s infinite;color:#ff3399}
+        @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.3)}28%{transform:scale(1)}42%{transform:scale(1.25)}}
+
+        .bubble{
+            background:rgba(255,255,255,0.11);
+            backdrop-filter:blur(22px);
+            border-radius:34px;
+            padding:38px 28px;
+            margin:34px 0;
+            box-shadow:0 20px 60px rgba(0,0,0,0.4),inset 0 0 50px rgba(255,255,255,0.08);
+        }
+        .bubble h2{
+            font-size:1.95rem;margin-bottom:24px;
+            background:linear-gradient(135deg,#ff3399,#ff66b3);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+        .bubble p{
+            font-size:1.25rem;line-height:1.95;color:#ffebff;margin:18px 0
+        }
+        .memory{
+            font-style:italic;
+            color:#ffb3d9;
+            margin:30px 0;
+            font-size:1.38rem;
+            line-height:1.85;
+            padding:20px;
+            background:rgba(255,51,161,0.15);
+            border-radius:24px;
+        }
+
+        .btn{
+            background:linear-gradient(135deg,#ff3399,#ff1a8c,#ff0066);
+            color:white;
+            border:none;
+            padding:24px 60px;
+            font-size:1.48rem;
+            border-radius:50px;
+            margin:40px 0 20px;
+            cursor:pointer;
+            box-shadow:0 22px 70px rgba(255,0,102,0.6);
+            font-weight:bold;
+            width:94%;
+            transition:all .5s;
+        }
+        .btn:hover{
+            transform:translateY(-10px) scale(1.06);
+            box-shadow:0 35px 90px rgba(255,0,102,0.8);
+        }
+
+        .response{
+            display:none;
+            background:rgba(255,51,161,0.3);
+            backdrop-filter:blur(22px);
+            border-radius:34px;
+            padding:42px 30px;
+            margin-top:35px;
+            animation:appear 1s;
+            box-shadow:0 25px 70px rgba(255,51,161,0.5);
+        }
         @keyframes appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-        .countdown{color:#ffb6e6;font-size:1.1rem;font-style:italic;margin-top:20px}
-        @media(max-width:480px){h1{font-size:3rem}.photo{width:140px;height:140px}.big-heart{font-size:4.8rem}.bubble{padding:28px 22px}}
+
+        .countdown{color:#ffccdd;font-size:1.1rem;font-style:italic;margin-top:20px}
+
+        @media(max-width:480px){
+            h1{font-size:3rem}
+            .photo{width:140px;height:140px}
+            .big-heart{font-size:4.8rem}
+            .bubble{padding:32px 22px}
+        }
     </style>
 </head>
 <body>
@@ -53,21 +137,19 @@
         <p class="subtitle">The love of my entire life</p>
         <div class="big-heart">I love you so much</div>
 
+        <!-- Apology + ultra-emotional memory -->
         <div class="bubble">
-            <p>Sarah… I’ve never been more sorry.</p>
-            <p>I hurt the one person who makes every day worth living, and these past few days without you have been the emptiest of my life. You are my light, my home, my everything — and I was stupid enough to make you doubt that.</p>
+            <p>Sarah… I’ve never been more sorry in my life.</p>
+            <p>I hurt the one person who makes every single day worth living. These past few days without you have been the emptiest, darkest days I’ve ever known. You are my light, my home, my whole world — and I was stupid enough to make you doubt that.</p>
+
+            <p class="memory">
+                Last night I couldn’t sleep, so I drove to the pier where we watched the sunrise on your birthday last year… the one where you cried happy tears because I surprised you with coffee and that tiny cake. I sat on the exact same bench, staring at the empty spot next to me where you should have been. I actually broke down crying like a child because I realized I might never feel your head on my shoulder there again. That moment is supposed to be ours forever, and I almost ruined it.
+            </p>
+
             <p>I miss your voice, your laugh, the way you fit perfectly in my arms. I took it all for granted and I hate myself for it.</p>
         </div>
 
-        <div class="bubble">
-            <h2>Why my heart will always belong to you</h2>
-            <div class="reason"><span>❤</span><span>Your smile is the most beautiful thing I’ve ever seen</span></div>
-            <div class="reason"><span>❤</span><span>The way you look at me like I’m your whole world</span></div>
-            <div class="reason"><span>❤</span><span>Your kindness and strength — you make me want to be better every day</span></div>
-            <div class="reason"><span>❤</span><span>Your hugs fix everything and your kisses stop time</span></div>
-            <div class="reason"><span>❤</span><span>I still get butterflies every time you walk into the room</span></div>
-        </div>
-
+        <!-- Promise -->
         <div class="bubble">
             <h2>My promise to you</h2>
             <p>I swear on everything I am:</p>
@@ -75,8 +157,8 @@
                • I will choose you every single day<br>
                • Pride will never come between us again<br>
                • I will hold you tighter and love you louder<br>
-               • I will spend forever making sure you feel as cherished as you are</p>
-            <p style="margin-top:25px;font-size:1.38rem;color:#ffb6e6">
+               • I will spend forever making sure you feel as cherished as you truly are</p>
+            <p style="margin-top:28px;font-size:1.42rem;color:#ffb3d9">
                 You are my forever. Please, baby… forgive me.
             </p>
         </div>
@@ -90,21 +172,34 @@
         </div>
 
         <div class="response" id="response">
-            <h2 style="font-size:2.3rem;color:#ffb6e6">Come here…</h2>
-            <p>I love you Srah.</p>
-            <p>please forgive me. I never stopped loving you — not for a second.</p>
+            <h2 style="font-size:2.4rem;color:#ffb3d9">Come here…</h2>
+            <p>I’ve been waiting for you to say all of this.</p>
+            <p>I forgive you. I never stopped loving you — not for a second.</p>
             <p>I miss you so much it hurts. I just want to be in your arms again.</p>
-            <p style="margin-top:25px;font-size:2.4rem">Come kiss me. I’m yours.</p>
+            <p style="margin-top:28px;font-size:2.5rem">Come kiss me. I’m yours.</p>
         </div>
     </div>
 </div>
 
 <script>
-    for(let i=0;i<60;i++){let s=document.createElement('div');s.className='sparkle';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*6+'s';document.getElementById('glow').appendChild(s)}
+    for(let i=0;i<70;i++){
+        let s=document.createElement('div');s.className='sparkle';
+        s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+        s.style.animationDelay=Math.random()*5+'s';
+        document.getElementById('glow').appendChild(s);
+    }
     const words=['I love you','I miss you','Forever yours','Come home','Kiss me','I need you','I love you','I love you'];
-    function float(){let h=document.createElement('div');h.className='heart';h.textContent=words[Math.floor(Math.random()*words.length)];h.style.left=Math.random()*100+'%';h.style.animationDuration=(12+Math.random()*8)+'s';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),18000)}
-    setInterval(float,800);for(let i=0;i<12;i++)setTimeout(float,i*400);
-    function burst(){for(let i=0;i<50;i++)setTimeout(float,i*70)}
+    function float(){
+        let h=document.createElement('div');h.className='heart';
+        h.textContent=words[Math.floor(Math.random()*words.length)];
+        h.style.left=Math.random()*100+'%';
+        h.style.animationDuration=(12+Math.random()*8)+'s';
+        document.getElementById('hearts').appendChild(h);
+        setTimeout(()=>h.remove(),18000);
+    }
+    setInterval(float,700);
+    for(let i=0;i<15;i++)setTimeout(float,i*350);
+    function burst(){for(let i=0;i<60;i++)setTimeout(float,i*60);}
     document.getElementById('days').textContent=Math.max(1,Math.floor((Date.now()-new Date('2025-11-19'))/86400000));
 </script>
 </body>
