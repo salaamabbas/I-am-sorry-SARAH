@@ -1,651 +1,111 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sorry, Sarah ❤</title>
+    <title>Sarah ♡ Please forgive me</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-    body {
-        font-family: 'Georgia', serif;
-        background: #000;
-        min-height: 100vh;
-        overflow-x: hidden;
-        position: relative;
-    }
-
-    .background-gradient {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, 
-            #ff006e 0%, 
-            #fb5607 15%, 
-            #ffbe0b 30%, 
-            #8338ec 50%, 
-            #3a86ff 70%, 
-            #06ffa5 85%, 
-            #ff006e 100%);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        z-index: 1;
-    }
-
-    @keyframes gradientShift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
-        z-index: 2;
-    }
-
-    .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 3;
-        pointer-events: none;
-    }
-
-    .particle {
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background: white;
-        border-radius: 50%;
-        opacity: 0;
-        animation: twinkle 3s infinite;
-    }
-
-    @keyframes twinkle {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 0.8; }
-    }
-
-    .floating-hearts {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 4;
-    }
-
-    .floating-heart {
-        position: absolute;
-        font-size: 2.5em;
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-        animation: float 10s infinite;
-        opacity: 0;
-    }
-
-    @keyframes float {
-        0% {
-            transform: translateY(100vh) rotate(0deg) scale(0.5);
-            opacity: 0;
-        }
-        10% {
-            opacity: 0.8;
-        }
-        90% {
-            opacity: 0.8;
-        }
-        100% {
-            transform: translateY(-100vh) rotate(360deg) scale(1.2);
-            opacity: 0;
-        }
-    }
-
-    .main-wrapper {
-        position: relative;
-        z-index: 10;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-    }
-
-    .container {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: 40px;
-        padding: 70px 60px;
-        max-width: 800px;
-        width: 100%;
-        box-shadow: 
-            0 50px 100px rgba(0,0,0,0.5),
-            0 0 100px rgba(255, 0, 110, 0.3),
-            inset 0 0 100px rgba(255, 255, 255, 0.1);
-        text-align: center;
-        animation: containerAppear 1.5s ease;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    @keyframes containerAppear {
-        from {
-            opacity: 0;
-            transform: scale(0.8) translateY(100px);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-    }
-
-    .profile-section {
-        margin-bottom: 40px;
-        animation: fadeInUp 1s ease 0.5s both;
-    }
-
-    .profile-image {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 30px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 6px solid transparent;
-        background: linear-gradient(white, white) padding-box,
-                    linear-gradient(135deg, #ff006e, #8338ec, #3a86ff, #06ffa5) border-box;
-        animation: profilePulse 3s ease infinite, profileRotate 20s linear infinite;
-        box-shadow: 
-            0 20px 60px rgba(255, 0, 110, 0.4),
-            0 0 80px rgba(131, 56, 236, 0.3);
-        position: relative;
-    }
-
-    @keyframes profilePulse {
-        0%, 100% {
-            transform: scale(1);
-            box-shadow: 
-                0 20px 60px rgba(255, 0, 110, 0.4),
-                0 0 80px rgba(131, 56, 236, 0.3);
-        }
-        50% {
-            transform: scale(1.05);
-            box-shadow: 
-                0 30px 80px rgba(255, 0, 110, 0.6),
-                0 0 120px rgba(131, 56, 236, 0.5);
-        }
-    }
-
-    @keyframes profileRotate {
-        from { filter: hue-rotate(0deg); }
-        to { filter: hue-rotate(360deg); }
-    }
-
-    .profile-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    h1 {
-        font-size: 4em;
-        background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 15px;
-        animation: textGlow 2s ease infinite, slideIn 1s ease 0.7s both;
-        text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
-        font-weight: bold;
-    }
-
-    @keyframes textGlow {
-        0%, 100% { filter: brightness(1); }
-        50% { filter: brightness(1.3); }
-    }
-
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .subtitle {
-        font-size: 1.8em;
-        background: linear-gradient(135deg, #fb5607, #ffbe0b);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 40px;
-        font-style: italic;
-        animation: slideIn 1s ease 0.9s both;
-        font-weight: bold;
-    }
-
-    .main-message {
-        background: linear-gradient(135deg, 
-            rgba(255, 0, 110, 0.15) 0%, 
-            rgba(131, 56, 236, 0.15) 50%,
-            rgba(58, 134, 255, 0.15) 100%);
-        border-radius: 30px;
-        padding: 50px;
-        margin: 40px 0;
-        border: 3px solid rgba(255, 255, 255, 0.5);
-        text-align: left;
-        animation: slideIn 1s ease 1.1s both;
-        box-shadow: 
-            0 20px 60px rgba(131, 56, 236, 0.2),
-            inset 0 0 60px rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-    }
-
-    .main-message p {
-        font-size: 1.3em;
-        line-height: 2;
-        color: #222;
-        margin-bottom: 25px;
-        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
-    }
-
-    .main-message p:last-child {
-        margin-bottom: 0;
-    }
-
-    .reasons-section {
-        background: linear-gradient(135deg, 
-            rgba(251, 86, 7, 0.2) 0%, 
-            rgba(255, 190, 11, 0.2) 50%,
-            rgba(6, 255, 165, 0.2) 100%);
-        border-radius: 30px;
-        padding: 50px;
-        margin: 40px 0;
-        animation: slideIn 1s ease 1.3s both;
-        border: 3px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 
-            0 20px 60px rgba(251, 86, 7, 0.3),
-            inset 0 0 60px rgba(255, 255, 255, 0.1);
-    }
-
-    .reasons-section h2 {
-        font-size: 2.5em;
-        background: linear-gradient(135deg, #ff006e, #fb5607, #ffbe0b);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 35px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .reason-item {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 25px;
-        border-radius: 20px;
-        margin: 20px 0;
-        text-align: left;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        transition: all 0.4s ease;
-        border: 2px solid transparent;
-    }
-
-    .reason-item:hover {
-        transform: translateX(15px) scale(1.02);
-        box-shadow: 0 15px 50px rgba(255, 0, 110, 0.3);
-        border-color: rgba(255, 0, 110, 0.5);
-    }
-
-    .reason-item .emoji {
-        font-size: 2.5em;
-        margin-right: 20px;
-        display: inline-block;
-        filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
-    }
-
-    .reason-item .text {
-        font-size: 1.2em;
-        color: #222;
-        display: inline-block;
-        vertical-align: middle;
-        max-width: calc(100% - 80px);
-    }
-
-    .promise-section {
-        background: linear-gradient(135deg, 
-            rgba(131, 56, 236, 0.2) 0%, 
-            rgba(58, 134, 255, 0.2) 50%,
-            rgba(6, 255, 165, 0.2) 100%);
-        border-radius: 30px;
-        padding: 50px;
-        margin: 40px 0;
-        animation: slideIn 1s ease 1.5s both;
-        border: 3px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 
-            0 20px 60px rgba(58, 134, 255, 0.3),
-            inset 0 0 60px rgba(255, 255, 255, 0.1);
-    }
-
-    .promise-section h2 {
-        font-size: 2.5em;
-        background: linear-gradient(135deg, #8338ec, #3a86ff, #06ffa5);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 25px;
-        font-weight: bold;
-    }
-
-    .promise-section p {
-        font-size: 1.3em;
-        color: #222;
-        line-height: 2;
-    }
-
-    .big-heart {
-        font-size: 6em;
-        margin: 30px 0;
-        animation: heartbeat 1.5s infinite;
-        filter: drop-shadow(0 0 30px rgba(255, 0, 110, 0.8));
-    }
-
-    @keyframes heartbeat {
-        0%, 100% {
-            transform: scale(1);
-        }
-        10%, 30% {
-            transform: scale(1.3);
-        }
-        20%, 40% {
-            transform: scale(1.2);
-        }
-    }
-
-    .cta-section {
-        margin-top: 50px;
-        animation: slideIn 1s ease 1.7s both;
-    }
-
-    .cta-button {
-        background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
-        background-size: 200% 200%;
-        color: white;
-        border: none;
-        padding: 25px 60px;
-        font-size: 1.5em;
-        border-radius: 60px;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        box-shadow: 
-            0 15px 50px rgba(255, 0, 110, 0.5),
-            0 0 60px rgba(131, 56, 236, 0.3);
-        font-family: 'Georgia', serif;
-        font-weight: bold;
-        animation: buttonGlow 3s ease infinite;
-        border: 3px solid rgba(255, 255, 255, 0.5);
-    }
-
-    @keyframes buttonGlow {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-    }
-
-    .cta-button:hover {
-        transform: translateY(-10px) scale(1.05);
-        box-shadow: 
-            0 25px 70px rgba(255, 0, 110, 0.7),
-            0 0 100px rgba(131, 56, 236, 0.5);
-    }
-
-    .response-message {
-        display: none;
-        background: linear-gradient(135deg, 
-            rgba(6, 255, 165, 0.3) 0%, 
-            rgba(58, 134, 255, 0.3) 100%);
-        border: 4px solid rgba(6, 255, 165, 0.6);
-        border-radius: 30px;
-        padding: 40px;
-        margin-top: 40px;
-        animation: fadeIn 0.8s ease;
-        box-shadow: 
-            0 20px 60px rgba(6, 255, 165, 0.4),
-            inset 0 0 60px rgba(255, 255, 255, 0.2);
-    }
-
-    @keyframes fadeIn {
-        from { 
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        to { 
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    .response-message h3 {
-        background: linear-gradient(135deg, #06ffa5, #3a86ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-
-    .response-message p {
-        color: #222;
-        font-size: 1.3em;
-        line-height: 1.8;
-    }
-
-    .countdown {
-        font-size: 1.1em;
-        background: linear-gradient(135deg, #ff006e, #8338ec);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-top: 25px;
-        font-style: italic;
-        font-weight: bold;
-    }
-
-    @media (max-width: 600px) {
-        .container {
-            padding: 50px 30px;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-        }
-        
-        .subtitle {
-            font-size: 1.3em;
-        }
-        
-        .profile-image {
-            width: 150px;
-            height: 150px;
-        }
-    }
-</style>
-
-
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Georgia',serif;background:#0d0a1f;min-height:100vh;color:#fff;overflow-x:hidden}
+        .sky{position:fixed;inset:0;background:linear-gradient(135deg,#1a0033,#2a0055,#4a0066,#800040);background-size:300% 300%;animation:breathe 25s ease infinite;z-index:1}
+        @keyframes breathe{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        .hearts,.glow{position:fixed;inset:0;pointer-events:none;z-index:2}
+        .heart{position:absolute;font-size:1.8rem;opacity:0;animation:rise 15s linear infinite;filter:drop-shadow(0 0 15px #ff69b4)}
+        .sparkle{position:absolute;width:4px;height:4px;background:#ffebff;border-radius:50%;animation:twinkle 6s infinite}
+        @keyframes rise{0%{transform:translateY(100vh) rotate(0deg);opacity:0}12%{opacity:0.9}88%{opacity:0.7}100%{transform:translateY(-120px) rotate(360deg);opacity:0}}
+        @keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
+        .wrapper{position:relative;z-index:10;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px 16px}
+        .letter{max-width:440px;width:100%;text-align:center}
+        .photo{width:160px;height:160px;border-radius:50%;overflow:hidden;margin:0 auto 30px;box-shadow:0 0 60px rgba(255,105,180,.6),0 0 120px rgba(255,182,193,.4);animation:pulse 5s infinite}
+        .photo img{width:100%;height:100%;object-fit:cover}
+        @keyframes pulse{0%,100%{box-shadow:0 0 60px rgba(255,105,180,.6)}50%{box-shadow:0 0 90px rgba(255,105,180,.9)}}
+        h1{font-size:3.4rem;margin:20px 0;background:linear-gradient(135deg,#ff69b4,#ffb6c1,#ff9ecd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 4px 20px rgba(255,105,180,.4)}
+        .subtitle{font-size:1.4rem;color:#ffb6e6;font-style:italic;margin-bottom:30px}
+        .big-heart{font-size:5.5rem;margin:30px 0;animation:heartbeat 1.8s infinite}
+        @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.28)}28%{transform:scale(1)}42%{transform:scale(1.22)}}
+        .bubble{background:rgba(255,255,255,.12);backdrop-filter:blur(20px);border-radius:32px;padding:34px 28px;margin:34px 0;box-shadow:0 20px 50px rgba(0,0,0,.3),inset 0 0 40px rgba(255,255,255,.1)}
+        .bubble h2{font-size:1.9rem;margin-bottom:22px;color:#ff9ecd;text-shadow:0 3px 15px rgba(255,105,180,.5)}
+        .bubble p{font-size:1.22rem;line-height:1.95;color:#ffeef8;margin:18px 0}
+        .reason{background:rgba(255,255,255,.15);padding:24px;border-radius:28px;margin:20px 0;text-align:left;backdrop-filter:blur(10px)}
+        .reason span:first-child{font-size:2.4rem;margin-right:16px}
+        .reason span:last-child{font-size:1.18rem;display:inline-block;width:calc(100%-70px);vertical-align:middle}
+        .btn{background:linear-gradient(135deg,#ff69b4,#ff1493,#ff9ecd);color:white;border:none;padding:22px 60px;font-size:1.42rem;border-radius:50px;margin:40px 0 20px;cursor:pointer;box-shadow:0 20px 60px rgba(255,20,147,.5);font-weight:bold;width:94%;transition:all .5s}
+        .btn:hover{transform:translateY(-10px) scale(1.06);box-shadow:0 30px 80px rgba(255,20,147,.7)}
+        .response{display:none;background:rgba(255,105,180,.25);backdrop-filter:blur(20px);border-radius:32px;padding:40px 30px;margin-top:35px;animation:appear 1s;box-shadow:0 20px 60px rgba(255,105,180,.4)}
+        @keyframes appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+        .countdown{color:#ffb6e6;font-size:1.1rem;font-style:italic;margin-top:20px}
+        @media(max-width:480px){h1{font-size:3rem}.photo{width:140px;height:140px}.big-heart{font-size:4.8rem}.bubble{padding:28px 22px}}
+    </style>
 </head>
 <body>
-    <div class="background-gradient"></div>
-    <div class="overlay"></div>
-    <div class="particles" id="particles"></div>
-    <div class="floating-hearts" id="hearts"></div>
 
+<div class="sky"></div>
+<div class="glow" id="glow"></div>
+<div class="hearts" id="hearts"></div>
 
-<div class="main-wrapper">
-    <div class="container">
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Sarah">
-            </div>
-            <h1>Sarah</h1>
-            <p class="subtitle">You mean everything to me 💕✨🌙</p>
+<div class="wrapper">
+    <div class="letter">
+        <div class="photo">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Sarah">
         </div>
 
-        <div class="big-heart">💖</div>
+        <h1>My Sarah</h1>
+        <p class="subtitle">The love of my entire life</p>
+        <div class="big-heart">I love you so much</div>
 
-        <div class="main-message">
-            <p>Okay, so... I messed up. Like, really messed up. 🙈 And I've been sitting here like a sad puppy 🐶 thinking about how much I hurt you.</p>
-            
-            <p>Remember when you said I can be stubborn sometimes? Yeah... you were 100% right. 😅 I should've listened to you (as usual, because you're always right 👑).</p>
-            
-            <p>You're literally the most amazing person I know, and here I am being a complete goofball. 🤦‍♂ I don't deserve you, but I'm going to spend every day trying to. ✨</p>
-            
-            <p>Also, I miss your face. Like, a LOT. 😭 Can we please go back to being that annoying couple everyone secretly wants to be? 💑</p>
+        <div class="bubble">
+            <p>Sarah… I’ve never been more sorry.</p>
+            <p>I hurt the one person who makes every day worth living, and these past few days without you have been the emptiest of my life. You are my light, my home, my everything — and I was stupid enough to make you doubt that.</p>
+            <p>I miss your voice, your laugh, the way you fit perfectly in my arms. I took it all for granted and I hate myself for it.</p>
         </div>
 
-        <div class="reasons-section">
-            <h2>Why You're My Favorite Human Ever 🥰</h2>
-            
-            <div class="reason-item">
-                <span class="emoji">😍</span>
-                <span class="text">That smile of yours? It's literally my favorite thing in the entire universe. Like, I'd choose it over pizza. And you KNOW how much I love pizza. 🍕</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">🤣</span>
-                <span class="text">You actually laugh at my terrible dad jokes. Either you genuinely find them funny or you love me way too much. Either way, I'm keeping you! 😂</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">🦸‍♀</span>
-                <span class="text">You make me want to be the best version of myself. Like a real-life superhero, but cuter and with better hair. 💁‍♀✨</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">👸</span>
-                <span class="text">You're basically a Disney princess but real. You're kind to everyone, animals love you, and you make my heart sing. 🎵💕</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">🏠</span>
-                <span class="text">Anywhere with you feels like home. Could be a fancy restaurant or sitting in traffic - as long as you're there, I'm happy. 🚗💨</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">🎁</span>
-                <span class="text">The way you remember tiny details about me (like how I like my coffee or hate cilantro 🌿). You're basically a mind reader and I love it! 🔮</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">🌹</span>
-                <span class="text">You're beautiful. Like, movie-star, take-my-breath-away, how-did-I-get-this-lucky beautiful. Inside and out. 😊✨</span>
-            </div>
-            
-            <div class="reason-item">
-                <span class="emoji">🤗</span>
-                <span class="text">Your hugs are literally the best. They should be prescription medicine. "Doctor's orders: 10 hugs daily." 💊💕</span>
-            </div>
+        <div class="bubble">
+            <h2>Why my heart will always belong to you</h2>
+            <div class="reason"><span>❤</span><span>Your smile is the most beautiful thing I’ve ever seen</span></div>
+            <div class="reason"><span>❤</span><span>The way you look at me like I’m your whole world</span></div>
+            <div class="reason"><span>❤</span><span>Your kindness and strength — you make me want to be better every day</span></div>
+            <div class="reason"><span>❤</span><span>Your hugs fix everything and your kisses stop time</span></div>
+            <div class="reason"><span>❤</span><span>I still get butterflies every time you walk into the room</span></div>
         </div>
 
-        <div class="promise-section">
-            <h2>My Pinky Promise to You 🤙💕</h2>
-            <p>I solemnly swear (with my hand on my heart ❤ and probably some chocolate 🍫) that I will:</p>
-            <p style="margin-top: 20px;">
-                ✨ Listen to you better (and actually HEAR you, not just nod while thinking about tacos 🌮)<br>
-                🗣 Communicate like an actual grown-up (crazy concept, I know!)<br>
-                🙇 Leave my ego at the door where it belongs<br>
-                😘 Kiss you more often (because life's too short and you're too cute)<br>
-                🎮 Let you win at video games sometimes (okay, FINE, you actually win fair and square 😅)<br>
-                💐 Bring you flowers "just because" (not just when I'm in trouble... though right now I'm VERY in trouble 😬)
+        <div class="bubble">
+            <h2>My promise to you</h2>
+            <p>I swear on everything I am:</p>
+            <p>• I will listen with my whole heart<br>
+               • I will choose you every single day<br>
+               • Pride will never come between us again<br>
+               • I will hold you tighter and love you louder<br>
+               • I will spend forever making sure you feel as cherished as you are</p>
+            <p style="margin-top:25px;font-size:1.38rem;color:#ffb6e6">
+                You are my forever. Please, baby… forgive me.
             </p>
-            <p style="margin-top: 25px;">Bottom line? You deserve the world 🌎, and I want to be the one who gives it to you. Starting with admitting I was wrong. 🙏</p>
-            <p style="margin-top: 20px;">So... can we please talk? I miss your laugh, your smile, your eye rolls when I say something dumb, literally everything. 🥺💕</p>
         </div>
 
-        <div class="cta-section">
-            <button class="cta-button" onclick="showResponse()">Okay Fine, Let's Talk 😊❤</button>
-            
-            <div class="countdown">
-                Days since I messed up: <span id="dayCount">3</span> 📅 (each one felt like a YEAR without you 😔💔)
-            </div>
+        <button class="btn" onclick="document.getElementById('response').style.display='block';this.style.display='none';burst()">
+            I forgive you… come back to me
+        </button>
+
+        <div class="countdown">
+            Days I’ve been missing my entire world: <span id="days">3</span>
         </div>
 
-        <div class="response-message" id="thankYou">
-            <h3>OMG YES! Thank You! 🥰🎉</h3>
-            <p>YOU JUST MADE MY WHOLE WEEK! 🌟 I love you SO much! Like, an embarrassing amount. The kind of love that makes people gag. 😂💕</p>
-            <p style="margin-top: 20px;">Let me take you to that fancy place you've been eyeing on Instagram! 📸🍝 Tonight at 7? I promise to:</p>
-            <p style="margin-top: 15px;">
-                ✅ Pull out your chair like a gentleman 🪑<br>
-                ✅ NOT check my phone (my eyes are only for you 👀💕)<br>
-                ✅ Order that dessert you always want but say you're "too full" for 🍰<br>
-                ✅ Hold your hand the whole way home 🤝✨<br>
-                ✅ Tell you you're beautiful approximately 47 times 😍
-            </p>
-            <p style="margin-top: 20px;">I can't WAIT to see that gorgeous smile again! See you soon, beautiful! 😘💖🌹</p>
+        <div class="response" id="response">
+            <h2 style="font-size:2.3rem;color:#ffb6e6">Come here…</h2>
+            <p>I love you Srah.</p>
+            <p>please forgive me. I never stopped loving you — not for a second.</p>
+            <p>I miss you so much it hurts. I just want to be in your arms again.</p>
+            <p style="margin-top:25px;font-size:2.4rem">Come kiss me. I’m yours.</p>
         </div>
     </div>
 </div>
 
 <script>
-    // Create particles
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 3 + 's';
-        particlesContainer.appendChild(particle);
-    }
-
-    // Create floating hearts
-    const heartsContainer = document.getElementById('hearts');
-    const heartSymbols = ['❤', '💕', '💖', '💗', '💝', '💘', '💓', '💞'];
-    
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
-        heart.style.animationDelay = Math.random() * 3 + 's';
-        heartsContainer.appendChild(heart);
-        
-        setTimeout(() => heart.remove(), 13000);
-    }
-    
-    // Create hearts periodically
-    setInterval(createHeart, 800);
-    
-    // Initial hearts
-    for (let i = 0; i < 8; i++) {
-        setTimeout(createHeart, i * 200);
-    }
-    
-    function showResponse() {
-        document.getElementById('thankYou').style.display = 'block';
-        document.querySelector('.cta-button').style.display = 'none';
-        
-        // Celebration effect
-        for (let i = 0; i < 30; i++) {
-            setTimeout(createHeart, i * 80);
-        }
-    }
+    for(let i=0;i<60;i++){let s=document.createElement('div');s.className='sparkle';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*6+'s';document.getElementById('glow').appendChild(s)}
+    const words=['I love you','I miss you','Forever yours','Come home','Kiss me','I need you','I love you','I love you'];
+    function float(){let h=document.createElement('div');h.className='heart';h.textContent=words[Math.floor(Math.random()*words.length)];h.style.left=Math.random()*100+'%';h.style.animationDuration=(12+Math.random()*8)+'s';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),18000)}
+    setInterval(float,800);for(let i=0;i<12;i++)setTimeout(float,i*400);
+    function burst(){for(let i=0;i<50;i++)setTimeout(float,i*70)}
+    document.getElementById('days').textContent=Math.max(1,Math.floor((Date.now()-new Date('2025-11-19'))/86400000));
 </script>
-
-
 </body>
 </html>
